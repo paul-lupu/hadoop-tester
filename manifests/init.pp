@@ -1,4 +1,3 @@
-class init{
+node default {
 	include test
-	Class['test']
 }
