@@ -1,0 +1,3 @@
+class init{
+	include test
+}
