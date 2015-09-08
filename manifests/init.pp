@@ -1,3 +1,4 @@
 node default {
-	include test
+	include test1
+	include catalogHT
 }
