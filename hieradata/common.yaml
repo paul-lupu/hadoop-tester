@@ -1,5 +1,5 @@
 --- 
-tests_ht::catalog: ambari-components
+tests_ht::api::catalog: ambari-components
 - hdfs
 - mapreduce2
 - yarn

@@ -1,4 +1,4 @@
-class tests_ht(
+class tests_ht::api(
 $catalog,
 $apis,
 ){
