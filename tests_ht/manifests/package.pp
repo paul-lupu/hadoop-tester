@@ -4,7 +4,7 @@ class tests_ht::package{
 	}
 	exec{'install frisby':
 		provider		=> 'shell', 
-		command			=> 'npm install --save-dev frisby',
+		command			=> 'npm install -g jasmine-node',
 		require			=> Package['npm']
 	}
 }
