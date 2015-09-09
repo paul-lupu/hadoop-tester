@@ -1,2 +1,4 @@
-<%# This is just a silly template %>
-Some random text: <%= @components %>
+<%# This template generates the list of components based on the catalog_ht yaml file%>
+<% @components.each do |com| 	%>
+<%=	com %> 
+<% end %>

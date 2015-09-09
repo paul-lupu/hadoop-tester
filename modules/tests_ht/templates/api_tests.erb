@@ -1,0 +1,21 @@
+<% puts YAML::dump(@apis) %>
+<%# This file contains is the template for the API testing class %>
+var url = {
+<% @apis.each do |key, value| %>
+	<% if @catalog.include?(key) %>
+	<%= value %>
+	<% end %> 
+<% end %>
+}
+var base = "http://admin:admin@localhost:"
+for (var i in ports){
+  var frisby = require('frisby');
+  var address=base.concat(url[i])
+  frisby.create(check)
+    .get(address)
+    .expectStatus(200)
+    .toss();
+}
+
+
+

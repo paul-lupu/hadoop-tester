@@ -1,0 +1,11 @@
+---
+tests_ht::apis: 
+  hdfs: 
+    "50070/dfshealth.html#tab-overview,"
+  yarn: 
+    "8088/cluster,"
+  oozie: 
+    "11000/oozie/?user.name=admin,"
+  hbase:
+  - "16010/master-status,"
+  - "16010/zk.jsp,"

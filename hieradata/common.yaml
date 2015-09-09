@@ -1,0 +1,10 @@
+--- 
+tests_ht::catalog: ambari-components
+- hdfs
+- mapreduce2
+- yarn
+- hive
+- hbase
+- oozie
+- zookeeper
+- spark
