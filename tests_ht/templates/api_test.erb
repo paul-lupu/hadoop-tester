@@ -1,0 +1,18 @@
+<% puts YAML::dump(@apis) %>
+<%# This file contains is the template for the API testing class %>
+var apis = [
+<% @apis.each do |key, value| %>
+	<% if @catalog.include?(key) %>
+	"<%= value %>",
+	<% end %> 
+<% end %>
+]
+var base = "http://admin:admin@localhost:"
+for (var i in apis){
+  var frisby = require('frisby');
+  var address=base.concat(apis[i])
+  frisby.create("Ambari API Checks:")
+    .get(address)
+    .expectStatus(200)
+    .toss();
+}
