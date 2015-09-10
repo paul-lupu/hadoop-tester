@@ -1,11 +1,11 @@
 ---
 tests_ht::api::apis: 
-  hdfs: 
-    "50070/dfshealth.html#tab-overview,"
-  yarn: 
-    "8088/cluster,"
-  oozie: 
-    "11000/oozie/?user.name=admin,"
-  hbase:
-  - "16010/master-status,"
-  - "16010/zk.jsp,"
+  HDFS_CLIENT: 
+    "50070/dfshealth.html#tab-overview"
+  YARN_CLIENT: 
+    "8088/cluster"
+  OOZIE_SERVER: 
+    "11000/oozie/?user.name=admin"
+  HBASE_MASTER:
+  - "16010/master-status"
+  - "16010/zk.jsp"
