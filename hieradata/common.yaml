@@ -1,4 +1,5 @@
 ---
+tests_ht::api::catalog: components
 - ZOOKEEPER_CLIENT
 - ZOOKEEPER_SERVER
 - HBASE_REGIONSERVER

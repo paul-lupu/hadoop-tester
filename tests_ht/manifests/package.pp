@@ -3,23 +3,22 @@ class tests_ht::package{
 		ensure	=> present
 	}
   file {'test_dir':
-    path      => "/opt/tests",
+    path      => "/vagrant/tests",
     ensure    => directory
   }
 	exec{'install jasmine':
 		provider		=> 'shell', 
-		command			=> 'cd /opt/tests && npm install jasmine-node',
+		command			=> 'npm install -g jasmine-node',
 		require			=> [File['test_dir'],Package['npm']]
 	}
 	exec{'install frisby':
 		provider		=> 'shell', 
-		command			=> 'cd /opt/tests && sudo npm install --save-dev frisby',
+		command			=> 'cd /vagrant/tests && sudo npm install --save-dev frisby',
 		require			=> [File['test_dir'],Package['npm']]
 	}
-  exec{'form-data':
+  exec{'install-form-data':
     provider    => 'shell',
-    command     => 'cd /opt/tests && npm install form-data',
+    command     => 'cd /vagrant/tests && npm install form-data',
     require     => [File['test_dir'],Package['npm']]
   }
-
 }
