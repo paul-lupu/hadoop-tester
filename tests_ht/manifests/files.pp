@@ -17,7 +17,12 @@ class tests_ht::files{
     path      => "/opt/tests/api",
     ensure    => directory,
     require   => File['test_dir'],
-  }
+  }	
+	file {'api_script':
+		path			=> "/opt/tests/api/api_test.sh",
+		source		=> "puppet:///modules/tests_ht/api/api_test.sh",
+		require		=> File['api_dir'],
+	}
 	file {'hbase_dir':
     path      => "/opt/tests/hbase",
     ensure    => directory,
