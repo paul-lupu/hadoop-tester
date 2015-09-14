@@ -3,7 +3,7 @@ echo " ##### RUNNING FUNCTIONALITY TESTS ##### "
 <%# This file contains is the template for the component testing class %>
 <%	@components.each do |key, value| %>
 	<%if @catalog.include?(key) %>
-		"/bin/bash <%= value %>",
+		/bin/bash <%= value %>
 	<% end %> 
 <% end %>
 

@@ -9,7 +9,7 @@ class tests_ht::files{
 		require		=> File['test_dir'],
 	}
 	file{'hive_script':	
-		path			=> "/opt/tests/hive/hive_tests.sh",
+		path			=> "/opt/tests/hive/hive_test.sh",
 		source		=> "puppet:///modules/tests_ht/hive/hive_test.sh",
 		require		=> File['hive_dir'],
 	}
