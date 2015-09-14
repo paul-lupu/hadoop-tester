@@ -1,0 +1,8 @@
+#!/bin/bash
+<%# This file contains is the template for the component testing class %>
+<%@components.each do |key, value| %>
+	<% if scope.lookupvar('tests_ht::api::catalog:').include?(key) %>
+	"/bin/bash <%= value %>",
+	<% end %> 
+<% end %>
+

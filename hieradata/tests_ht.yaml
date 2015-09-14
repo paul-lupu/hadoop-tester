@@ -9,3 +9,13 @@ tests_ht::api::apis:
   HBASE_MASTER:
   - "16010/master-status"
   - "16010/zk.jsp"
+	ATLAS_SERVER:
+		"21000"
+	FALCON_SERVER:
+		"6080"
+
+tests_ht::tests::components: "components"
+	HBASE_MASTER:
+		"hbase/hbase_test.sh"
+	HIVE_SERVER:
+		"hive/hive_test.sh"
