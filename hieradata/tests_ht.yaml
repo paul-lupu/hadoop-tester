@@ -13,6 +13,8 @@ tests_ht::api::apis:
     "21000"
   FALCON_SERVER:
     "6080"
+	SPARK_JOBHISTORYSERVER:
+		"18080"
 tests_ht::tests::components:
   HBASE_MASTER:
     "hbase/hbase_test.sh"
