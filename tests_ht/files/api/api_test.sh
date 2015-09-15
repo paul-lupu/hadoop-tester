@@ -1,7 +1,7 @@
 #!/bin/bash 
 echo "##### TESTING APIs ######"
 cd api && jasmine-node api_spec.js
-if [$? -eq 0 ]; then
+if [ $? -eq 0 ]; then
 	echo "API tests completed successfully."
 	exit 0
 else
