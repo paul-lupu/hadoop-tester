@@ -1,7 +1,5 @@
 ---
 tests_ht::api::apis: 
-  HDFS_CLIENT: 
-    "50070/dfshealth.html#tab-overview"
   YARN_CLIENT:
     "8088/cluster"
   OOZIE_SERVER:
