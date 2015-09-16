@@ -9,7 +9,7 @@ class tests_ht::package{
 	}
 	exec{'install frisby':
 		provider		=> 'shell', 
-		command			=> 'cd /opt/tests/api && sudo npm install --save-dev frisby',
+		command			=> 'cd /opt/tests/api && npm install --save-dev frisby',
 		require			=> Package['npm']
 	}
   exec{'install-form-data':
