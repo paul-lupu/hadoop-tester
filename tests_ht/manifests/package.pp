@@ -4,17 +4,17 @@ class tests_ht::package{
 	}
 	exec{'install jasmine':
 		provider		=> 'shell', 
-		command			=> 'npm install -g jasmine-node',
+		command			=> 'npm cache clean jasmine-node && npm install -g jasmine-node',
 		require			=> Package['npm']
 	}
 	exec{'install frisby':
 		provider		=> 'shell', 
-		command			=> 'cd /opt/tests/api && npm install --save-dev frisby',
+		command			=> 'cd /opt/tests/api && npm cache clean frisby && npm install --save-dev frisby',
 		require			=> Package['npm']
 	}
   exec{'install-form-data':
     provider    => 'shell',
-    command     => 'cd /opt/tests/api && npm install form-data',
+    command     => 'cd /opt/tests/api && npm cache clean form-data && npm install form-data',
     require     => Package['npm']
   }
 }
