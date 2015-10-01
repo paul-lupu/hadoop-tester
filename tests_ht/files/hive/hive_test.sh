@@ -1,7 +1,7 @@
 #!/bin/bash
 echo ""
 echo " ##### RUNNING HIVE TABLE LIST TEST ##### "
-hive -e 'show tables;'
+/usr/bin/timeout 400s /usr/bin/hive -e 'show tables;'
 if [ $? -eq 0 ]; then
         echo "Test completed successfully."
 				exit 0

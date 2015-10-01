@@ -1,7 +1,7 @@
 #!/bin/bash
 echo ""
 echo " ##### RUNNING HBASE TABLE LIST TEST ##### "
-hbase shell hbase/hbase_commands
+timeout 4s /usr/bin/hbase shell /opt/tests/hbase/hbase_commands
 if [ $? -eq 0 ]; then
 	echo "Test completed successfully."
 	exit 0
