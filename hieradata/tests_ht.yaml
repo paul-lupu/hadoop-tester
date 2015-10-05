@@ -6,7 +6,7 @@ tests_ht::api::apis:
     "11000/oozie/?user.name=admin"
   HBASE_MASTER:
     "16010/master-status"
-  ZOOKEEPER_SERVER:
+  HBASE_MASTER:
     "16010/zk.jsp"
   ATLAS_SERVER:
     "21000"
