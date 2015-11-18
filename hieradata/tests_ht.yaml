@@ -19,3 +19,5 @@ tests_ht::tests::components:
     "hbase/hbase_test.sh"
   HIVE_SERVER:
     "hive/hive_test.sh"
+	SQOOP:
+		"sqoop/sqoop_test.sh"
