@@ -13,6 +13,16 @@ class tests_ht::files{
 		source		=> "puppet:///modules/tests_ht/hive/hive_test.sh",
 		require		=> File['hive_dir'],
 	}
+	file{'sqoop_dir':
+		path		=> "/opt/tests/sqoop",
+		ensure	=> directory, 
+		require	=> File['test_dir'], 
+	}
+	file{'sqoop_script':
+		path		=> '/opt/tests/sqoop/sqoop_test.sh',
+		source	=> 'puppet:///modules/tests_ht/sqoop/sqoop_test.sh', 
+		require	=> File['sqoop_dir'],
+	}
 	file {'api_dir':
     path      => "/opt/tests/api",
     ensure    => directory,

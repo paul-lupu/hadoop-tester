@@ -20,4 +20,4 @@ tests_ht::tests::components:
   HIVE_SERVER:
     "hive/hive_test.sh"
   SQOOP:
-    "squoop/sqoop_test.sh"
+    "sqoop/sqoop_test.sh"
