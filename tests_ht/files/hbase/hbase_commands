@@ -1,3 +1,6 @@
+create 'test','field'
+list
+disable 'test'
+drop 'test' 
 list
 exit
-
