@@ -9,6 +9,7 @@ else
 				exit 1
 fi
 echo ""
+echo " ##### RUNNING HIVE SELECT COUNT(*) TEST ##### "
 /usr/bin/timeout 400s /usr/bin/hive -e 'select count(*) from sample_07;'
 if [ $? -eq 0 ]; then
         echo "Test completed successfully."
