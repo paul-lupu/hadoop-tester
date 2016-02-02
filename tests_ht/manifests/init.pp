@@ -3,8 +3,9 @@ class tests_ht{
 	include api
 	include files
 	include tests
-  Class['files'] ->
+	Class['files'] ->
 	Class['package']->
 	Class['api'] ->
 	Class['tests']
 }
+include tests_ht

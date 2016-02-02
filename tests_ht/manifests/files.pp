@@ -3,6 +3,11 @@ class tests_ht::files{
     path      => "/opt/tests",
     ensure    => directory
   }
+	file{'system_dir':
+		path			=> "/opt/tests/system", 
+		ensure		=> directory, 
+		require		=> File['test_dir'],
+	}
 	file {'hive_dir':
 		path			=> "/opt/tests/hive",
 		ensure		=> directory, 
@@ -28,6 +33,17 @@ class tests_ht::files{
     ensure    => directory,
     require   => File['test_dir'],
   }	
+	file {'systems_script':
+		path			=> '/opt/tests/system/system_tests.sh', 
+		source		=> 'puppet:///modules/tests_ht/system/system_tests.sh', 
+		require		=> File['system_dir'],
+	}
+	file{'all_scripts':
+		path			=> '/opt/tests/all_tests.sh', 
+		source		=> 'puppet:///modules/tests_ht/all_tests.sh', 
+		mode			=> "777",
+		require		=> File['test_dir'],
+	}
 	file {'api_script':
 		path			=> "/opt/tests/api_tests.sh",
 		source		=> "puppet:///modules/tests_ht/api/api_test.sh",
