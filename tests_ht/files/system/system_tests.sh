@@ -24,10 +24,10 @@ if [ $TO -eq 180 ]; then
 fi
 
 
-echo ' #### RESTARTING AMBARI-SERVER AND CHECKING FOR STALE AMBARI-AGENT #### '
+echo '##### RESTARTING AMBARI-SERVER AND CHECKING FOR STALE AMBARI-AGENT #####'
 ambari-server restart
 for i in {0..60}; do
-        ambari-agent status | grep -i stale
+        /usr/sbin/ambari-agent status | grep -i stale
         if [ $? -eq 0  ]; then
                 exit 1;
         fi
