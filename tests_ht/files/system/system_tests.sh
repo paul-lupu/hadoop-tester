@@ -34,6 +34,6 @@ for i in {0..60}; do
         sleep 1
         echo -n '.'
 done
-echo ''
+echo ' ' 
 echo 'No stale ambari-agent process found'
 
