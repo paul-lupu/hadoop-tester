@@ -25,7 +25,7 @@ fi
 
 
 echo '##### RESTARTING AMBARI-SERVER AND CHECKING FOR STALE AMBARI-AGENT #####'
-/usr/sbin/ambari-server restart
+sudo /usr/sbin/ambari-server restart
 for i in {0..60}; do
         /usr/sbin/ambari-agent status | grep -i stale
         if [ $? -eq 0  ]; then
