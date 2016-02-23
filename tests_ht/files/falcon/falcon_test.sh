@@ -14,7 +14,7 @@
 #
 
 # resolve links - $0 may be a softlink
-
+echo " ##### RUNNING FALCON OOZIE TEST #####"
 exec_shell_command () {
    RETSTRING=$($1 2>&1)
    EXITVAL=$?

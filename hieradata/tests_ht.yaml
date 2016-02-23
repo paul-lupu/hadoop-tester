@@ -22,4 +22,4 @@ tests_ht::tests::components:
   SQOOP:
     "sqoop/sqoop_test.sh"
   FALCON_SERVER:
-    "falcon/falcon_test.sh"
+    "falcon/falcon_test.sh /usr/hdp/current/falcon-server/"
