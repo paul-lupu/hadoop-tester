@@ -51,7 +51,7 @@ class tests_ht::files{
 	file{'all_scripts':
 		path			=> '/opt/tests/all_tests.sh', 
 		source		=> 'puppet:///modules/tests_ht/all_tests.sh', 
-		mode			=> "777",
+		mode			=> "655",
 		require		=> File['test_dir'],
 	}
 	file {'api_script':
