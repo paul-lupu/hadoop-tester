@@ -1,6 +1,5 @@
 ---
 tests_ht::api::catalog: components
-- ATLAS_SERVER
 - DATANODE
 - NFS_GATEWAY
 - DRPC_SERVER
