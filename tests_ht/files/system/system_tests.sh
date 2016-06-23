@@ -2,7 +2,12 @@
 #this file will start up all services and check that everything is able to start correctly
 
 echo  "##### WAITING ON GUEST TO BECOME READY #####"
-TO=0; until curl -s -u admin:4o12t0n -i -H 'X-Requested-By: ambari' http://localhost:8080/api/v1/hosts/sandbox.hortonworks.com/ | grep host_status  | grep HEALTHY| grep -v UNHEALTHY &> /dev/null || [ $TO -eq 180 ] ; do sleep 1 $(( TO++ )); done
+TO=0; until curl -s -u admin:4o12t0n -i -H 'X-Requested-By: ambari' http://localhost:8080/api/v1/hosts/sandbox.hortonworks.com/ | grep host_status  | grep HEALTHY| grep -v UNHEALTHY &> /dev/null || [ $TO -eq 180 ] ; do sleep 1 $(( TO++ ));
+if [ $TO -eq 180 ]; then
+ echo "Host state is unhealthy. Exiting."
+ exit 1
+fi
+ done
 
 if [ $TO -eq 180 ]; then
  echo "Host state is unhealthy. Exiting."
@@ -17,12 +22,12 @@ for i in $(curl -s -u admin:4o12t0n -H "X-Requested-By: ambari" http://localhost
 done
 
 TO=0;
-until curl -s -u admin:4o12t0n -i -H 'X-Requested-By: ambari' http://localhost:8080/api/v1/hosts/sandbox.hortonworks.com/ | grep host_status  | grep HEALTHY| grep -v UNHEALTHY &> /dev/null || [ $TO -eq 180 ] ; do sleep 1 $(( TO++ ));done
+until curl -s -u admin:4o12t0n -i -H 'X-Requested-By: ambari' http://localhost:8080/api/v1/hosts/sandbox.hortonworks.com/ | grep host_status  | grep HEALTHY| grep -v UNHEALTHY &> /dev/null || [ $TO -eq 180 ] ; do sleep 1 $(( TO++ ));
 if [ $TO -eq 180 ]; then
  echo "Starting all services failed. Exiting."
  exit 1
 fi
-
+done
 
 echo '##### RESTARTING AMBARI-SERVER AND CHECKING FOR STALE AMBARI-AGENT #####'
 export TERM=linux
