@@ -6,4 +6,10 @@ $catalog=$tests_ht::api::catalog,
 		content	=> template('tests_ht/tests.erb'),
 		ensure	=> present, 
 	}
+
+	exec{'mod777':
+		provider	=> 'shell',
+		command		=> 'chmod -R 777 /opt/tests/*',
+		require		=> File['/opt/tests/service_tests.sh'],
+	}
 }
