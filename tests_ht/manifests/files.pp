@@ -90,12 +90,12 @@ class tests_ht::files{
 
  exec{'sudoers_unit':
     provider  => 'shell',
-    command   => 'echo "unit ALL=NOPASSWD: /bin/su - root -c /opt/tests/all_tests.sh">/etc/sudoers.d/unit',
+    command   => 'echo "unit ALL=NOPASSWD: /bin/su - admin -c /opt/tests/all_tests.sh">/etc/sudoers.d/unit',
     require   => User['unit'],
   }
   exec{'admin_unit':
     provider  => 'shell',
-    command   => 'echo "admin ALL=NOPASSWD: ALL',
+    command   => 'echo "admin ALL = (ALL) NOPASSWD: ALL"> /etc/sudoers.d/admin',
     require   => User['unit'],
   }
   exec{'expire_unit':
