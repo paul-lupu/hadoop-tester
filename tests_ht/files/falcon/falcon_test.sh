@@ -110,7 +110,6 @@ exec_shell_command "sudo -u hdfs hadoop fs -mkdir -p /user/ambari-qa/falcon/demo
 exec_shell_command "sudo -u hdfs hadoop fs -chmod -R 777 /apps/falcon/primaryCluster /user/ambari-qa/falcon"
 exec_shell_command "sudo -u hdfs hadoop fs -chown -R falcon /apps/falcon/primaryCluster"
 exec_shell_command "sudo -u hdfs hadoop fs -chmod -R 755 /apps/falcon/primaryCluster/working"
-exec_shell_command "sudo -u hdfs hadoop fs -chown -R ambari-qa /apps/falcon/primaryCluster/staging/falcon/workflows/feed/rawEmailFeed"
 
 # Submit entities
 echo "Submitting cluster entity XML"
