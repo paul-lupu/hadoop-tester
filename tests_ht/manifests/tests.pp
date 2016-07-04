@@ -12,4 +12,10 @@ $catalog=$tests_ht::api::catalog,
 		command		=> 'chmod -R 777 /opt/tests/*',
 		require		=> File['/opt/tests/service_tests.sh'],
 	}
+	  exec{'cleanup':
+    provider      => "shell",
+    command       => "/usr/bin/sandbox-reset", 
+    require       => [File['/opt/tests/service_tests.sh']],
+  }
+
 }
