@@ -4,6 +4,7 @@ echo " ##### RUNNING FUNCTIONALITY TESTS ##### "
 <%	@components.each do |key, value| %>
 	<%if @catalog.include?(key) %>
 		/bin/bash <%= value %>
+		if [ $? -ne 0 ]; then echo '!!!!! INTEGRATION TEST FAILED. EXITING...'; exit 1; fi;
 	<% end %> 
 <% end %>
 
