@@ -17,5 +17,11 @@ $catalog=$tests_ht::api::catalog,
     command       => "/usr/bin/sandbox-reset", 
     require       => [File['/opt/tests/service_tests.sh']],
   }
+  exec{'clean_os_cache':
+    provider      => "shell",
+    command       => "/usr/bin/yum clean all; rm -rf /var/cache/yum",
+    require       => Exec['cleanup'],
+  }
+
 
 }
