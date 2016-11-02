@@ -2,6 +2,9 @@ class tests_ht::package{
 	package{'npm':
 		ensure	=> present
 	}
+	package{'jq':
+		ensure	=> present
+	}
 	exec{'install jasmine':
 		provider		=> 'shell', 
 		command			=> 'npm cache clean jasmine-node && npm install -g jasmine-node',

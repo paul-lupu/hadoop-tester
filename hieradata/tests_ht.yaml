@@ -21,3 +21,5 @@ tests_ht::tests::components:
     "hive/hive_test.sh"
   SQOOP:
     "sqoop/sqoop_test.sh"
+	ZEPPELIN_MASTER:
+		"zeppelin/zeppelin.sh"

@@ -8,6 +8,21 @@ class tests_ht::files{
 		ensure		=> directory, 
 		require		=> File['test_dir'],
 	}
+	file{"zepdir"
+		path			=> "/opt/tests/zeppelin", 
+		ensure		=> directory, 
+		require		=> File['test_dir'],
+	}
+	file{"zeptest.sh":
+		path			=> "/opt/tests/zeppelin/zeptest.sh", 
+		require		=> File['zepdir'], 
+		source		=> "puppet:///modules/tests_ht/zeppelin/zeptest.sh",
+	}
+	file{"zeppelin.sh":
+		path			=> "/opt/tests/zeppelin/zeppelin.sh",
+		require		=> File['zepdir'], 
+		source		=> "puppet:///modules/tests_ht/zeppelin/zeppelin.sh",
+	}
 	file{'falcon_dir':
 		path			=> "/opt/tests/falcon", 
 		ensure		=> directory, 
