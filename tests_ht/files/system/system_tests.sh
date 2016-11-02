@@ -15,7 +15,7 @@ if [ $TO -eq 180 ]; then
 fi
 
 echo "##### STARTING ALL SERVICES ##### "
-for i in $(curl -s -u admin:4o12t0n -H "X-Requested-By: ambari" http://localhost:8080/api/v1/clusters/Sandbox/services/ | grep  -oP "[A-Z_]{3,}" | grep -vi metrics| uniq); do
+for i in $(curl -s -u admin:4o12t0n -H "X-Requested-By: ambari" http://localhost:8080/api/v1/clusters/Sandbox/services/ | grep  -oP "[A-Z_0-9]{3,}" | grep -vi metrics| uniq); do
         curl  -s -u admin:4o12t0n -i -H 'X-Requested-By: ambari' -X PUT -d '{"RequestInfo":{"context":"Turn Off Maintenance Mode"},"Body":{"ServiceInfo":{"maintenance_state":"OFF"}}}'  http://localhost:8080/api/v1/clusters/Sandbox/services/$i > /dev/null
         sleep 3
 done
