@@ -1,0 +1,23 @@
+#!/bin/bash
+echo " ##### RUNNING ZEPPELIN NOTEBOOKS TEST ##### "
+for i in 2BEQE47HR; do 
+	echo ""
+	echo "Running notebook ID: $i ..."
+	if [[ $(/bin/bash /opt/tests/zeppelin/zeptest.sh $i  | grep OK ) ]]; 
+		then 
+			echo "Notebook started successfully!" 
+			echo -n "Waiting for results "; while curl  -s -XGET http://localhost:9995/api/notebook/job/$i | grep 'PENDING\|RUNNING' >/dev/null; do echo -n "."; sleep 5; done;
+			echo ""
+			if [[ $(curl  -s -XGET http://localhost:9995/api/notebook/job/$i | grep ERROR ) ]]; then
+				echo "Notebook execution failed! Exitting...";
+				exit 1; 
+			else
+				echo "Notebook execution completed successfully"
+			fi
+	else
+		echo "Zeppelin notebook ID: $i failed to execute! Aborting..."
+		exit 11;
+	fi;
+done
+echo "All zeppelin tests successfull!"
+

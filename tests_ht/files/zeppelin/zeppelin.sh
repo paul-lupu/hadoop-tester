@@ -1,6 +1,6 @@
 #!/bin/bash
 echo " ##### RUNNING ZEPPELIN NOTEBOOKS TEST ##### "
-for i in 2BEQE47HR; do
+for i in 2B48PF7SN; do
   echo "";
   echo "Running parahraphs for note: $i":
   curl -s -XGET http://localhost:9995/api/interpreter/setting | jq '.body[] | .id'
