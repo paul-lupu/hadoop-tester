@@ -8,7 +8,7 @@ class tests_ht::files{
 		ensure		=> directory, 
 		require		=> File['test_dir'],
 	}
-	file{"zepdir"
+	file{"zepdir":
 		path			=> "/opt/tests/zeppelin", 
 		ensure		=> directory, 
 		require		=> File['test_dir'],
