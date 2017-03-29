@@ -1,6 +1,8 @@
 #!/bin/bash
 echo " ##### RUNNING ZEPPELIN NOTEBOOKS TEST ##### "
-for i in 2B48PF7SN; do
+output=curl http://localhost:9995/api/notebook/import --data @notebook.js
+id=$(echo $output | grep -oP \"body\":\".+\" | grep -oP [0-9A-Z]+)
+for i in $id; do
   echo "";
   echo "Running parahraphs for note: $i":
   curl -s -XGET http://localhost:9995/api/interpreter/setting | jq '.body[] | .id'
