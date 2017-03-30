@@ -23,6 +23,11 @@ class tests_ht::files{
 		require		=> File['zepdir'], 
 		source		=> "puppet:///modules/tests_ht/zeppelin/zeppelin.sh",
 	}
+	file{"notebook.js":
+		path			=> "/opt/tests/zeppelin/notebook.js", 
+		require		=> File['zepdir'], 
+		source		=> 'puppet:///modules/tests_ht/zeppelin/notebook.js',
+	}
 	file{'falcon_dir':
 		path			=> "/opt/tests/falcon", 
 		ensure		=> directory, 
