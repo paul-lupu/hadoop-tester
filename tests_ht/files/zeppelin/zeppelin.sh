@@ -1,6 +1,6 @@
 #!/bin/bash
 echo " ##### RUNNING ZEPPELIN NOTEBOOKS TEST ##### "
-output=curl http://localhost:9995/api/notebook/import --data @notebook.js
+output=$(curl http://localhost:9995/api/notebook/import --data @notebook.js)
 id=$(echo $output | grep -oP \"body\":\".+\" | grep -oP [0-9A-Z]+)
 for i in $id; do
   echo "";
